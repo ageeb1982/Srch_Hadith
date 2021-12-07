@@ -40,19 +40,35 @@ function check_hadith() {
 
     // xhttp.send();
 
-
-
-
     let url = "http://dorar.net/dorar_api.json?skey=" + sky + "&callback=?";
-    fetch(url)
-        .then(res => res.json())
+    let response = fetch(url, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'no-cors', // no-cors, *cors, same-origin
+        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers:
+        {
+            'Content-Type': 'application/json',
+            // 'Access-Control-Allow-Origin': '*',
+            // 'Access-Control-Allow-Credentials': "true"
+        }
+    }).then(res => res.json())
         .then((out) => {
             console.log('Output: ', out);
-        }).catch(err => console.error(err));
-   
-   
-   
-        // var headers = {};
+        }).catch(err => console.log(err));
+
+    ;
+
+
+    // fetch(url)
+    //     .then(res => res.json())
+    //     .then((out) => {
+    //         console.log('Output: ', out);
+    //     }).catch(err => console.error(err));
+
+
+
+    // var headers = {};
 
     // fetch(url, {
     //     method: "GET",
